@@ -38,7 +38,7 @@ class CardBasic extends HTMLElement {
                 
                 .container {
                     display: flex;
-                    flex: 0.5;
+                    flex: 1;
                     align-items: center;
                     flex-direction: column-reverse;
                     padding: 20px;
