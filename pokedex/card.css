@@ -1,0 +1,42 @@
+/* :host {
+    display: flex;
+    overflow: hidden;
+    padding: 100px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+} */
+
+body{
+    display: flex;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.card{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(50, 174, 92);
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card>.card-body>img{
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: rgb(186, 186, 186);
+    padding: 5px;
+}
+
+.card>.card-body>img{
+    width: 150px;
+}
+
+.card>.card-footer>p{
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}

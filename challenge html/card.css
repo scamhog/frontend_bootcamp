@@ -1,8 +1,8 @@
-card-basic{
+ card-basic{
     width: 30%;
 }
 
-/* :host {
+:host {
     display: flex;
     overflow: hidden;
     padding: 10px;
@@ -92,4 +92,4 @@ card-basic{
     font-weight: 700;
     color: white;
     font-size: 2rem;
-} */
+} 
