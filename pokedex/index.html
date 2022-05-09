@@ -5,21 +5,23 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Pokedex</title>
-    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="pokedex.css">
 </head>
 
-<body>
-    <!-- <template id="cardTemplate"> -->
-    <div class="card">
-        <div class="card-body">
-            <img id="pokemon-img" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" class="image">
+<body id="pokedex" onload="loadPokemons()">
+    <template id="cardTemplate">
+        <div class="card">
+            <div class="card-body">
+                <img id="pokemon-img" src="" class="image">
+            </div>
+            <div class="card-footer">
+                <p id="pokemon-name"></p>
+            </div>
         </div>
-        <div class="card-footer">
-            <p id="pokemon-name">Bulbasaur</p>
-        </div>
-    </div>
-    <!-- </template> -->
+    </template>
+    <script src="./utils.js"></script>
     <script src="./cardBasic.js"></script>
+    <script src="./pokedex.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-export const pokemonColorMap = {
+const pokemonColorMap = {
     "1": "#4ca04c",//green
     "2": "#4ca04c",
     "3": "#4ca04c",
@@ -260,7 +260,7 @@ const dataPokemons = {
     ]
 };
 
-export function getPokemonImageUri(id) {
+function getPokemonImageUri(id) {
     const imageId = ('00' + id).slice(-3); // para 1 => 001
     return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${imageId}.png`;
 }
