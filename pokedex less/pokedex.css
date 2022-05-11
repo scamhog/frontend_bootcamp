@@ -1,0 +1,28 @@
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "header header header header header header header header" "pokedex pokedex pokedex pokedex pokedex pokedex pokedex pokedex" "footer footer footer footer footer footer footer footer";
+}
+.grid .header {
+  grid-area: header;
+  padding: 20px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #6070E0;
+  color: white;
+}
+.grid .pokedex {
+  grid-area: pokedex;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.grid .footer {
+  grid-area: footer;
+  padding: 20px;
+  box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #384394;
+  color: white;
+}
