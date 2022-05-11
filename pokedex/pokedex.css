@@ -1,4 +1,4 @@
-body{
+/* body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -6,7 +6,7 @@ body{
     padding: 10px;
     box-sizing: border-box;
     font-family: sans-serif;
-}
+} */
 
 .grid{
     width: 100%;
@@ -16,13 +16,15 @@ body{
     grid-template-areas: 
     "header header header header header header header header"
     "pokedex pokedex pokedex pokedex pokedex pokedex pokedex pokedex"
-    "footer footer footer footer footer footer footer footer"
+    "footer footer footer footer footer footer footer footer";
 }
 
 .header{
     grid-area: header;
     padding: 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #6070E0;
+    color: white;
 }
 
 .pokedex{
@@ -35,7 +37,8 @@ body{
 
 .footer {
     grid-area: footer;
-    background-color: lightblue;
     padding: 20px;
     box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #384394;
+    color: white;
 }

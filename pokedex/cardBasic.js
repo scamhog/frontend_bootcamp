@@ -19,17 +19,22 @@ class CardBasic extends HTMLElement {
                 flex-direction: column;
                 align-items: center;
                 padding: 15px;
-                background-color: ${this.cardcolor};
+                background: linear-gradient(to bottom left, #e3e3e3, ${this.cardcolor});
                 border-radius: 10px;
                 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
                 margin-bottom: 15px;
                 margin-right: min(5px);
                 margin-left: min(5px);
+                transition: transform .2s;
+            }
+
+            .card:hover{
+                transform: scale(1.1);
             }
             
             .card>.card-body>img{
                 box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-                background-color: rgb(186, 186, 186);
+                background-color: ${this.cardcolor};
                 width: 180px;
             }
             
