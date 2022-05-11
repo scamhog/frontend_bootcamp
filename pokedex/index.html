@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="pokedex.css">
 </head>
 
-<body id="pokedex" onload="loadPokemons()">
+<body onload="loadPokemons()">
     <template id="cardTemplate">
         <div class="card">
             <div class="card-body">
@@ -19,6 +19,17 @@
             </div>
         </div>
     </template>
+
+    <div class="grid">
+        <div class="header">
+            SOME HEADER
+        </div>
+        <div id="pokedex" class="pokedex"></div>
+        <div class="footer">
+            SOME FOOTER
+        </div>
+    </div>
+
     <script src="./utils.js"></script>
     <script src="./cardBasic.js"></script>
     <script src="./pokedex.js"></script>

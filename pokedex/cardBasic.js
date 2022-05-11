@@ -23,12 +23,14 @@ class CardBasic extends HTMLElement {
                 border-radius: 10px;
                 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
                 margin-bottom: 15px;
+                margin-right: min(5px);
+                margin-left: min(5px);
             }
             
             .card>.card-body>img{
                 box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
                 background-color: rgb(186, 186, 186);
-                width: 150px;
+                width: 180px;
             }
             
             .card>.card-footer>p{
