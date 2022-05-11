@@ -35,7 +35,7 @@ class CardBasic extends HTMLElement {
             .card>.card-body>img{
                 box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
                 background-color: ${this.cardcolor};
-                width: 180px;
+                
             }
             
             .card>.card-footer>p{
