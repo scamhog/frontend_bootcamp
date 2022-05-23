@@ -1,0 +1,19 @@
+{
+  "name": "pokedex_less",
+  "version": "1.0.0",
+  "description": "grunt testing",
+  "main": "cardBasic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SCAM",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.5.3",
+    "grunt-contrib-uglify": "^5.2.1",
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "grunt-clean": "^0.4.0"
+  }
+}
