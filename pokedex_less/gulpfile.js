@@ -1,6 +1,17 @@
-function defaultTask(cb) {
-    // place code for your default task here
-    cb();
-}
+var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
 
-exports.default = defaultTask
+
+//series
+gulp.series(  
+    gulp.task('compress', function (cb) {
+        pump([
+            gulp.src('src/*.js'),
+            uglify(),
+            gulp.dest('dist/pokedex.min.js')
+        ],
+            cb
+        );
+    })
+)

@@ -11,7 +11,9 @@
   "devDependencies": {
     "grunt": "^1.5.3",
     "grunt-contrib-uglify": "^5.2.1",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "pump": "^3.0.0"
   },
   "dependencies": {
     "grunt-clean": "^0.4.0"

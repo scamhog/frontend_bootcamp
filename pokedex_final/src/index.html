@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="styles/pokedex.css">
+</head>
+
+<body onload="loadPokemons()">
+    <div class="grid">
+        <div class="header">
+            <img src="./assets/images/International_Pokémon_logo.png" alt="pokemon logo">
+            <img src="./assets/images/poke-ball-pokemon.png" alt="pokeball">
+        </div>
+        <div id="pokedex" class="pokedex"></div>
+        <div class="footer">
+            SOME FOOTER
+        </div>
+    </div>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/card-basic.js"></script>
+    <script src="./js/pokedex.js"></script>
+</body>
+
+</html>
+
+<template id="cardTemplate">
+    <div class="card">
+        <div class="card-body">
+            <div class="img-conatiner">
+                <img id="pokemon-img" src="" alt="">
+            </div>
+            <p>N.°001</p>
+        </div>
+        <div class="card-footer">
+            <p id="pokemon-name"></p>
+        </div>
+    </div>
+</template>

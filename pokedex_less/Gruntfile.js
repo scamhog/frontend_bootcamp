@@ -7,6 +7,9 @@ module.exports = function (grunt) {
                     'dist/js/pokedex.min.js': 'src/*.js'
                 }
             }
+        },
+        clean: {
+            
         }
     });
     grunt.loadNpmTasks('grunt-clean');

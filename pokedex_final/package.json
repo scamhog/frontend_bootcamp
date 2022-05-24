@@ -1,0 +1,11 @@
+{
+  "name": "pokedex_final",
+  "version": "1.0.0",
+  "description": "Pokedex with pokemon gifs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SCAM",
+  "license": "MIT"
+}

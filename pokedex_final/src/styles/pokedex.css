@@ -1,3 +1,8 @@
+body{
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
 .grid{
     width: 100%;
     display: grid;
@@ -5,7 +10,7 @@
     grid-template-rows: auto;
     grid-template-areas: 
     "header header header header header header header header"
-    "pokedex pokedex pokedex pokedex pokedex pokedex pokedex pokedex"
+    ". pokedex pokedex pokedex pokedex pokedex pokedex ."
     "footer footer footer footer footer footer footer footer";
 }
 
@@ -13,8 +18,15 @@
     grid-area: header;
     padding: 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    background-color: #e06060;
+    background-color: #f44336;
     color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header>img{
+    max-height: 60px;
 }
 
 .pokedex{
@@ -22,13 +34,15 @@
     padding: 15px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-evenly;
+    align-items: flex-end;
 }
 
 .footer {
     grid-area: footer;
     padding: 20px;
     box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.3);
-    background-color: #943838;
+    background-color: #b9000a;
     color: white;
 }

@@ -1,9 +1,8 @@
 class CardBasic extends HTMLElement {
-
     constructor() {
         super();
         this.pokename = '';
-        this.sprite = '';
+        this.gif = '';
         this.cardcolor = '';
     }
 
@@ -14,41 +13,54 @@ class CardBasic extends HTMLElement {
         `
         <style>
             .card{
-                width: max-content;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 15px;
-                background: linear-gradient(to bottom left, #e3e3e3, ${this.cardcolor});
-                border-radius: 10px;
-                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-                margin-bottom: 15px;
-                margin-right: min(5px);
-                margin-left: min(5px);
+                width: 160px;
+                margin-top: 10px;
                 transition: transform .2s;
             }
-
+            
             .card:hover{
                 transform: scale(1.1);
             }
             
-            .card>.card-body>img{
-                box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-                background-color: ${this.cardcolor};
-                width: 180px;
+            .card-body{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: white;
             }
             
-            .card>.card-footer>p{
-                font-size: 1rem;
+            .card>.card-body>img{
+                margin-top: 10px;
+            }
+            
+            .card>.card-body>p{
+                font-size: small;
+                text-shadow: 0 0 3px #fff, 0 0 5px #fff;
+            }
+            
+            .card-footer{
+                width: 100%;
+                border-radius: 10px;
+                background-color: ${this.cardcolor};
+                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .card-footer>p{
+                text-align: center;
+                font-size: larger;
                 font-weight: 600;
                 color: white;
-                color: #fff;
-                text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+                letter-spacing: 1.5px;
+                text-shadow: 0 0 3px #000, 0 0 5px #000;
             }
         </style>
         `
         let content = templateElem.content.cloneNode(true);
-        content.querySelector('#pokemon-img').setAttribute('src', this.sprite);
+        content.querySelector('#pokemon-img').setAttribute('src', this.gif);
         content.querySelector('#pokemon-name').innerText = this.pokename;
         shadow.appendChild(content);
     }
@@ -56,14 +68,14 @@ class CardBasic extends HTMLElement {
     attributeChangedCallback(name, oldVal, newVal) {
         if (name === 'pokename')
             this.pokename = newVal;
-        if (name === 'sprite')
-            this.sprite = newVal;
+        if (name === 'gif')
+            this.gif = newVal;
         if (name === 'cardcolor')
             this.cardcolor = newVal;
     }
 
     static get observedAttributes() {
-        return ['pokename', 'sprite', 'cardcolor'];
+        return ['pokename', 'gif', 'cardcolor'];
     }
 }
 
