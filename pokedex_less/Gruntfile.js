@@ -9,10 +9,9 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            
+            folder: "dist/"
         }
     });
-    grunt.loadNpmTasks('grunt-clean');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['uglify']);
+    grunt.loadNpmTasks('grunt-clean','grunt-contrib-uglify');
+    grunt.registerTask('default', ['clean','uglify']);
 };

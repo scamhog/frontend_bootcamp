@@ -2,7 +2,7 @@
   "name": "pokedex_less",
   "version": "1.0.0",
   "description": "grunt testing",
-  "main": "cardBasic.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,7 @@
     "pump": "^3.0.0"
   },
   "dependencies": {
-    "grunt-clean": "^0.4.0"
+    "grunt-clean": "^0.4.0",
+    "lodash": "^4.17.21"
   }
 }
