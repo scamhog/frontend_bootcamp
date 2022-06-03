@@ -4,8 +4,19 @@
   "description": "Pokedex with pokemon gifs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development"
   },
   "author": "SCAM",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
 }
