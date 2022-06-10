@@ -5,78 +5,45 @@
   - fill Moves with missing data from Types you can get the information from url of the move.
   - re-write decortator to get new pokemons Ids in PokemonTrainer class 
 */
-
-import Pokedex from "./Pokedex";
+import { IPokemon } from "./interfaces/IPokemon";
+import { PokeMoves } from "./PokeMoves";
 import { Move, Type } from "./Types";
-import { getMoveDetails } from "./utils";
 
-export class Pokemon {
+export class Pokemon implements IPokemon {
     id: number = 0;
     name: string = '';
     moves: Move[] = [];
     types: Type[] = [];
 
-    constructor(pokemonResult: Pokemon) {
+    constructor(pokemonResult: any) {
         this.buildFieldsPokemon(pokemonResult);
     }
 
-    async buildFieldsPokemon(pokemon: Pokemon) {
+    async buildFieldsPokemon(pokemon: any) {
         this.name = pokemon.name;
         this.id = pokemon.id;
-        let aux;
-        await this.getMovesRandom(pokemon.id)
-            .then(async (randMovesRes) => {
-                aux = randMovesRes;
-                let randMoves: any[] = randMovesRes;
-                let pokeMoves: Move[] = [];
-                await Promise.all(
-                    randMoves.map(async randMove => {
-                        await this.getPokeMoveDetails(randMove.move.url)
-                            .then((moveDetailedRes) => {
-                                pokeMoves.push(moveDetailedRes);
-                            });
-                    }));
-                this.moves = pokeMoves;
-            });
+        this.setTypes(pokemon);
     }
 
-    async getMovesRandom(id: number) {
-        return await Pokedex.getPokemonMoves(id)
-            .then((allmoves) => {
-                const movesRandom: any[] = [];
-                const MAX_MOVES = 4;
-                let randomNum: number = Math.floor(Math.random() * allmoves.length);
-                for (let index = 0; index < MAX_MOVES; index++) {
-                    movesRandom.push(allmoves[randomNum]);
-                    randomNum = Math.floor(Math.random() * allmoves.length);
-                }
-                return movesRandom;
-            });
+    async buildMoves(pokeData: any) {
+        let randMoves: any[] = PokeMoves.getMovesRandom(pokeData);
+        let pokeMoves: Move[] = [];
+        await Promise.all(
+            randMoves.map(async randMove => {
+                await PokeMoves.getPokeMoveDetails(randMove.move.url)
+                    .then((moveDetailedRes) => {
+                        pokeMoves.push(moveDetailedRes);
+                    });
+            }));
+        this.moves = pokeMoves;
     }
 
-    async getPokeMoveDetails(url: string) {
-        return await getMoveDetails(url)
-            .then((resDetails) => {
-                let moveDetailed: Move;
-                return moveDetailed = {
-                    name: resDetails.data.name,
-                    accuracy: resDetails.data.accuracy,
-                    powerPoints: resDetails.data.pp,
-                    type: resDetails.data.type,
-                    url: url
-                }
-            })
-    }
-
-    displayInfo() {
-        console.log(`==========================`);
-        console.log(`${this.id} ${this.name}`);
-        console.log(this.types);
-        this.types.forEach(type => {
-            console.log(`${type.name}`);
-        });
-        this.moves.forEach(move => {
-            console.log(`${move.name}`);
-        });
+    setTypes(pokeData: any) {
+        let pokeTypes: any[] = pokeData.types;
+        let types: Type[] = [];
+        pokeTypes.map(async poketype => {
+            types.push({ name: poketype.type.name, url: poketype.type.url });
+        })
+        this.types = types;
     }
 }
