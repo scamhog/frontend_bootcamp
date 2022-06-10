@@ -1,5 +1,4 @@
 import { Pokemon } from "./Pokemon";
-import { Type } from "./Types";
 import { getSinglePokemon } from "./utils";
 
 export class PokemonTrainer {
@@ -13,10 +12,10 @@ export class PokemonTrainer {
 
     async getPokemons() {
         const listPokemons = this.listOfIds.map(id => getSinglePokemon(id));
-        const results = await Promise.all(listPokemons)
-        results.forEach(result => {
-            this.pokemons.push(new Pokemon(result.data));
-        });
+        const results = await Promise.all(listPokemons);
+        await Promise.all(results.map(async result => {
+            await this.pokemons.push(await new Pokemon(result.data));
+        }));
     }
 
     async showTeam() {
