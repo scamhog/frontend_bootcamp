@@ -1,0 +1,35 @@
+<div class="tasker">
+  <h4>Add Task</h4>
+  <div class="tasker-field">
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="task.title" />
+  </div>
+  <div class="tasker-field">
+    <label>Description:</label>
+    <textarea
+      name="description"
+      id="description"
+      cols="30"
+      rows="5"
+      [(ngModel)]="task.description"
+    ></textarea>
+  </div>
+  <div class="tasker-field">
+    <label>Date:</label>
+    <input
+      type="date"
+      name="taskDate"
+      id="taskDate"
+      [(ngModel)]="task.date"
+      (change)="dateChange($event)"
+    />
+  </div>
+</div>
+<br />
+<div class="task-list" *ngFor="let itemTask of taskList">
+  <app-task-item
+    [title]="itemTask.title"
+    [description]="itemTask.description"
+    [date]="itemTask.date"
+  ></app-task-item>
+</div>

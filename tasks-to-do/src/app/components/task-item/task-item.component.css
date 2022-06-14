@@ -1,0 +1,36 @@
+.task-item-container{
+  background-color: rgb(237, 237, 237);
+  border-radius: 15px;
+  width: 500px;
+  padding: 1rem;
+  box-shadow: 2px 2px 10px #777777;
+}
+
+.task-title{
+  font-size: larger;
+  font-weight: bold;
+}
+
+.label-title{
+  margin-left: 5px;
+}
+
+.through-lined-title{
+  margin-left: 5px;
+  text-decoration: line-through;
+}
+
+.task-description{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.task-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.task-footer p {
+  margin-right: 15px;
+}

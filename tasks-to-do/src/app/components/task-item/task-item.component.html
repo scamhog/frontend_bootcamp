@@ -1,0 +1,19 @@
+<div class="task-item-container">
+  <div class="task-title">
+    <input type="checkbox" [(ngModel)]="completed" />
+    <label
+      [ngClass]="{
+        'label-title': !completed,
+        'through-lined-title': completed
+      }"
+      (click)="completed = !completed"
+      >{{ title }}</label
+    >
+  </div>
+  <div class="task-description">
+    <p>{{ description }}</p>
+  </div>
+  <div class="task-footer">
+    <p>{{ date.getDate() }}/{{ date.getMonth() }}/{{ date.getFullYear() }}</p>
+  </div>
+</div>
