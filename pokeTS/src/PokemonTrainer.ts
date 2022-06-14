@@ -1,6 +1,6 @@
 import { IPokemonTrainer } from "./interfaces/IPokemonTrainer";
 import { Pokemon } from "./Pokemon";
-import { PokemonDisplayer } from "./PokemonDosplayer";
+import { PokemonDisplayer } from "./PokemonDisplayer";
 import { getSinglePokemon } from "./utils";
 
 export class PokemonTrainer implements IPokemonTrainer {
@@ -15,11 +15,12 @@ export class PokemonTrainer implements IPokemonTrainer {
     async getPokemons() {
         const listPokemons = this.listOfIds.map(id => getSinglePokemon(id));
         const results = await Promise.all(listPokemons);
-        await Promise.all(results.map(async result => {
-            let newPokemon: Pokemon = new Pokemon(result.data);
-            this.pokemons.push(newPokemon);
-            await newPokemon.buildMoves(result.data);
-        }));
+        await Promise.all(
+            results.map(async result => {
+                let newPokemon: Pokemon = new Pokemon(result.data);
+                await newPokemon.buildMoves(result.data);
+                this.pokemons.push(newPokemon);
+            }));
     }
 
     async showTeam() {

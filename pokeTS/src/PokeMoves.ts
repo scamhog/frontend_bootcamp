@@ -1,19 +1,20 @@
 import { Move } from "./Types";
 import { getMoveDetails } from "./utils";
 
-export abstract class PokeMoves{
-    static async getPokeMoveDetails(url: string) {
-        return await getMoveDetails(url)
-            .then((resDetails) => {
-                let moveDetailed: Move;
-                return moveDetailed = {
-                    name: resDetails.data.name,
-                    accuracy: resDetails.data.accuracy,
-                    powerPoints: resDetails.data.pp,
-                    type: resDetails.data.type,
-                    url: url
-                }
-            })
+export abstract class PokeMoves {
+    static getPokeMoveDetails(url: string) {
+        return getMoveDetails(url);
+    }
+
+    static proccesPokeMove(moveDetails: any) {
+        let moveDetailed: Move;
+        return moveDetailed = {
+            name: moveDetails.name,
+            accuracy: moveDetails.accuracy,
+            powerPoints: moveDetails.pp,
+            type: moveDetails.type,
+            url: moveDetails.url
+        }
     }
 
     static getMovesRandom(pokeData: any) {

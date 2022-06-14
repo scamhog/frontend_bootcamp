@@ -27,15 +27,14 @@ export class Pokemon implements IPokemon {
 
     async buildMoves(pokeData: any) {
         let randMoves: any[] = PokeMoves.getMovesRandom(pokeData);
-        let pokeMoves: Move[] = [];
-        await Promise.all(
-            randMoves.map(async randMove => {
-                await PokeMoves.getPokeMoveDetails(randMove.move.url)
-                    .then((moveDetailedRes) => {
-                        pokeMoves.push(moveDetailedRes);
-                    });
-            }));
-        this.moves = pokeMoves;
+        const aux = await Promise.all(
+            randMoves.map(
+                randMove => PokeMoves.getPokeMoveDetails(randMove.move.url)
+            )
+        );
+        aux.map(moveDetail => {
+            this.moves.push(PokeMoves.proccesPokeMove(moveDetail.data));
+        });
     }
 
     setTypes(pokeData: any) {
