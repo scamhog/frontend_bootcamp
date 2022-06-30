@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/utils/types';
 import { PokemonService } from '../service/pokemon.service';
 
@@ -8,10 +8,11 @@ import { PokemonService } from '../service/pokemon.service';
   styleUrls: ['./pokemon-list.component.sass'],
 })
 export class PokemonListComponent implements OnInit {
+  @Input()
+  searchQuery: string = '';
   private offset: number = 0;
-  private limit: number = 100;
+  private limit: number = 50;
   pokemons: any[] = [];
-  scrollCounter: number = 5;
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {

@@ -1,8 +1,21 @@
+.pokeContainer
+  @apply flex flex-col items-center mt-3
+
+.pokeSearch
+  @apply w-9/12 flex justify-end
+
 .pokeList
-  @apply flex flex-row justify-evenly flex-wrap mt-3
+  @apply flex flex-row justify-evenly flex-wrap
 
 .item-list
   @apply my-2 mx-2
 
 cdk-virtual-scroll-viewport
-  @apply h-screen w-screen
+  @apply w-4/5 mt-4
+  height: 78vh
+  -ms-overflow-style: none
+  scrollbar-width: none
+  overflow-y: scroll
+
+cdk-virtual-scroll-viewport::-webkit-scrollbar
+  display: none

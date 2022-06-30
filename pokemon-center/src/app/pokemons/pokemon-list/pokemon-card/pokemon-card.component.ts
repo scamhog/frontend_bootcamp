@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { colorsPokemon } from 'src/app/utils/colors';
 import { Pokemon } from 'src/app/utils/types';
-import { PokemonService } from '../service/pokemon.service';
+import { PokemonService } from '../../service/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-card',

@@ -1,12 +1,14 @@
-<!-- <cdk-virtual-scroll-viewport
-  itemSize="20"
-  (scrolledIndexChange)="getNextBatch($event)"
-> -->
-  <div class="pokeList">
-    <app-pokemon-card
-      class="item-list"
-      *ngFor="let pokemon of pokemons"
-      [pokemon]="pokemon"
-    ></app-pokemon-card>
+<div class="pokeContainer">
+  <div class="pokeSearch">
+    <app-search-bar></app-search-bar>
   </div>
-<!-- </cdk-virtual-scroll-viewport> -->
+  <cdk-virtual-scroll-viewport itemSize="20">
+    <div class="pokeList">
+      <app-pokemon-card
+        class="item-list"
+        *ngFor="let pokemon of pokemons"
+        [pokemon]="pokemon"
+      ></app-pokemon-card>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
