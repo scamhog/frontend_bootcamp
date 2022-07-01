@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { SearchBarComponent } from './core/components/search-bar/search-bar.component';
 import { PokeInfoDetailComponent } from './pokemons/poke-info-detail/poke-info-detail.component';
+import { PaginatorComponent } from './core/components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PokeInfoDetailComponent } from './pokemons/poke-info-detail/poke-info-d
     NavbarComponent,
     SearchBarComponent,
     PokeInfoDetailComponent,
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,

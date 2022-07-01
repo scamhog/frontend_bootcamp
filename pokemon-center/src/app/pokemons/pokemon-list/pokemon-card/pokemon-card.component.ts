@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { colorsPokemon } from 'src/app/utils/colors';
 import { Pokemon } from 'src/app/utils/types';
 import { PokemonService } from '../../service/pokemon.service';
@@ -12,7 +13,7 @@ export class PokemonCardComponent implements OnInit {
   @Input()
   pokemon!: Pokemon;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPokemonData();
@@ -34,5 +35,9 @@ export class PokemonCardComponent implements OnInit {
     let expr = '#000';
     if (this.pokemon.id) expr = colorsPokemon[this.pokemon.id - 1];
     return expr;
+  }
+
+  goToDetails() {
+    this.router.navigate(['pokedex', this.pokemon.id]);
   }
 }
