@@ -1,13 +1,13 @@
 <div class="pokeContainer">
   <div class="pokeSearch">
-    <app-search-bar></app-search-bar>
+    <app-search-bar [field]="'name'" [listToFilter]="pokemons" (listFiltered)="updateList($event)"></app-search-bar>
     <app-paginator></app-paginator>
   </div>
   <cdk-virtual-scroll-viewport itemSize="20">
     <div class="pokeList">
       <app-pokemon-card
         class="item-list"
-        *ngFor="let pokemon of pokemons"
+        *ngFor="let pokemon of pokemonsAux"
         [pokemon]="pokemon"
       ></app-pokemon-card>
     </div>

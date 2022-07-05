@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   faAngleLeft,
   faAngleRight,
@@ -18,6 +18,8 @@ export class PaginatorComponent implements OnInit {
   start: IconDefinition = faAngleDoubleLeft;
   end: IconDefinition = faAngleDoubleRight;
   constructor() {}
-
+  itemsPerPage: number = 20;
+  @Output('setFrecuency')
+  frequency: EventEmitter<number> = new EventEmitter();
   ngOnInit(): void {}
 }

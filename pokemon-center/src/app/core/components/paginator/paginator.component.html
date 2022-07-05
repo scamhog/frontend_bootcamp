@@ -1,8 +1,8 @@
 <div class="paginator">
   <label>Items per page:</label>
-  <select>
-    <option value="10">10</option>
+  <select [(ngModel)]="itemsPerPage">
     <option value="20">20</option>
+    <option value="30">30</option>
     <option value="50">50</option>
   </select>
   <button class="start"><fa-icon [icon]="start"></fa-icon></button>

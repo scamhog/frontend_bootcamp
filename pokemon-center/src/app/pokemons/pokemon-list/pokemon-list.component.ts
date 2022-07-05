@@ -13,6 +13,7 @@ export class PokemonListComponent implements OnInit {
   private offset: number = 0;
   private limit: number = 50;
   pokemons: any[] = [];
+  pokemonsAux: any[] = [];
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
@@ -24,10 +25,15 @@ export class PokemonListComponent implements OnInit {
       .getPokemonsList(this.offset, this.limit)
       .subscribe((data: { results: Pokemon[] }) => {
         this.pokemons = [...this.pokemons, ...data.results];
+        this.pokemonsAux = [...this.pokemons, ...data.results];
         suscription.unsubscribe();
         console.log(this.pokemons.length);
       });
     this.offset += this.limit;
+  }
+
+  updateList(event: Pokemon[]) {
+    this.pokemonsAux = event;
   }
 
   getNextBatch(event: any) {

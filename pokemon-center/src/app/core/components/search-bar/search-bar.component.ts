@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   faMagnifyingGlass,
   IconDefinition,
@@ -9,17 +9,22 @@ import {
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.sass'],
 })
-export class SearchBarComponent {
+export class SearchBarComponent<T extends Record<keyof T, string | number>> {
   faMagnifyingGlass: IconDefinition = faMagnifyingGlass;
-
-  @Output('searchQeury')
-  searchQueryChange: EventEmitter<string> = new EventEmitter();
-
+  @Output('listFiltered')
+  listFilteredEmmiter: EventEmitter<Array<T>> = new EventEmitter();
+  @Input()
+  listToFilter: T[] = [];
+  @Input() field!: keyof T;
   searchbarQuery: string = '';
 
   constructor() {}
 
   queryChange() {
-    this.searchQueryChange.emit(this.searchbarQuery);
+    this.listFilteredEmmiter.emit(
+      this.listToFilter.filter((item) =>
+        (item[this.field] as string).includes(this.searchbarQuery)
+      )
+    );
   }
 }
