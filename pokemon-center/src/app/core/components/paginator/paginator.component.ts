@@ -22,4 +22,8 @@ export class PaginatorComponent implements OnInit {
   @Output('setFrecuency')
   frequency: EventEmitter<number> = new EventEmitter();
   ngOnInit(): void {}
+
+  itemsPPChange() {
+    this.frequency.emit(this.itemsPerPage);
+  }
 }

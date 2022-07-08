@@ -8,10 +8,9 @@ import { PokemonService } from '../service/pokemon.service';
   styleUrls: ['./pokemon-list.component.sass'],
 })
 export class PokemonListComponent implements OnInit {
-  @Input()
-  searchQuery: string = '';
   private offset: number = 0;
-  private limit: number = 50;
+  private limit: number = 20;
+  public pokesPPage: number = 20;
   pokemons: any[] = [];
   pokemonsAux: any[] = [];
   constructor(private pokemonService: PokemonService) {}
@@ -25,9 +24,9 @@ export class PokemonListComponent implements OnInit {
       .getPokemonsList(this.offset, this.limit)
       .subscribe((data: { results: Pokemon[] }) => {
         this.pokemons = [...this.pokemons, ...data.results];
-        this.pokemonsAux = [...this.pokemons, ...data.results];
+        this.pokemonsAux = this.pokemons.slice(0, this.pokesPPage);
         suscription.unsubscribe();
-        console.log(this.pokemons.length);
+        console.log('reload get pokemons');
       });
     this.offset += this.limit;
   }
@@ -36,11 +35,12 @@ export class PokemonListComponent implements OnInit {
     this.pokemonsAux = event;
   }
 
-  getNextBatch(event: any) {
-    console.log(event);
-    // if (event == this.scrollCounter) {
-    //   this.getPokemons();
-    //   this.scrollCounter += 5;
-    // }
+  changeLimit(newLimit: number) {
+    this.pokesPPage = newLimit;
+    if (this.pokemons.length < this.pokesPPage) {
+      this.getPokemons();
+    } else {
+      this.pokemonsAux = this.pokemons.slice(0, this.pokesPPage);
+    }
   }
 }

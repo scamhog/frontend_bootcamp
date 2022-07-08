@@ -1,7 +1,11 @@
 <div class="pokeContainer">
   <div class="pokeSearch">
-    <app-search-bar [field]="'name'" [listToFilter]="pokemons" (listFiltered)="updateList($event)"></app-search-bar>
-    <app-paginator></app-paginator>
+    <app-search-bar
+      [field]="'name'"
+      [listToFilter]="pokemons"
+      (listFiltered)="updateList($event)"
+    ></app-search-bar>
+    <app-paginator (setFrecuency)="changeLimit($event)"></app-paginator>
   </div>
   <cdk-virtual-scroll-viewport itemSize="20">
     <div class="pokeList">

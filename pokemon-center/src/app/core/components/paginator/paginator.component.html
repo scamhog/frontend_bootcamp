@@ -1,6 +1,6 @@
 <div class="paginator">
-  <label>Items per page:</label>
-  <select [(ngModel)]="itemsPerPage">
+  <label>Pokemons per page:</label>
+  <select [(ngModel)]="itemsPerPage" (change)="itemsPPChange()">
     <option value="20">20</option>
     <option value="30">30</option>
     <option value="50">50</option>
