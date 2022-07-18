@@ -9,10 +9,12 @@ import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.compo
 import { PokemonService } from './pokemons/service/pokemon.service';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchBarComponent } from './core/components/search-bar/search-bar.component';
 import { PokeInfoDetailComponent } from './pokemons/poke-info-detail/poke-info-detail.component';
 import { PaginatorComponent } from './core/components/paginator/paginator.component';
+import { GrapherComponent } from './core/components/grapher/grapher.component';
+import { AddPokemonComponent } from './pokemons/add-pokemon/add-pokemon.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { PaginatorComponent } from './core/components/paginator/paginator.compon
     SearchBarComponent,
     PokeInfoDetailComponent,
     PaginatorComponent,
+    GrapherComponent,
+    AddPokemonComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { PaginatorComponent } from './core/components/paginator/paginator.compon
     HttpClientModule,
     ScrollingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent],

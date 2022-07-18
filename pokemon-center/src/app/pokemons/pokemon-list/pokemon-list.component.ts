@@ -9,8 +9,9 @@ import { PokemonService } from '../service/pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
   private offset: number = 0;
-  private limit: number = 20;
-  public pokesPPage: number = 20;
+  private limit: number = 50;
+  pokesPPage: number = 50;
+
   pokemons: any[] = [];
   pokemonsAux: any[] = [];
   constructor(private pokemonService: PokemonService) {}
@@ -35,12 +36,7 @@ export class PokemonListComponent implements OnInit {
     this.pokemonsAux = event;
   }
 
-  changeLimit(newLimit: number) {
-    this.pokesPPage = newLimit;
-    if (this.pokemons.length < this.pokesPPage) {
-      this.getPokemons();
-    } else {
-      this.pokemonsAux = this.pokemons.slice(0, this.pokesPPage);
-    }
+  changeLimit(event: any) {
+    this.pokesPPage = event;
   }
 }

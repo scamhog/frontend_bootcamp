@@ -45,3 +45,10 @@ export interface Pokemon {
     }
   ];
 }
+
+export interface Species {
+  flavor_text_entries: Array<{
+    flavor_text: string;
+    language: { name: string; url: string };
+  }>;
+}

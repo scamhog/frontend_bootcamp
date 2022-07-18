@@ -1,1 +1,36 @@
 <button (click)="goback()">Go back</button>
+<div class="max-container">
+  <div class="container-column">
+    <div class="info-card pokeImg">
+      <div class="title">{{ pokemon.id }} - {{ pokemon.name }}</div>
+      <div class="body">
+        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" />
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="title">TYPES</div>
+      <div class="body center">
+        <p
+          [ngClass]="['type-label', type.type.name]"
+          *ngFor="let type of pokemon.types"
+        >
+          {{ type.type.name }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-column stats">
+    <div class="info-card" *ngIf="stats.values.length > 0">
+      <div class="title">STATS</div>
+      <div class="body">
+        <app-grapher style="width: 420px;" [stats]="stats"></app-grapher>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="title">DESCRIPTION</div>
+      <div class="body">
+        <p class="description">{{ description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

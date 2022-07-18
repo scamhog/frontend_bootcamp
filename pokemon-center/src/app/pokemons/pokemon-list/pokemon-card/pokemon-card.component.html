@@ -1,5 +1,11 @@
 <div class="card" (click)="goToDetails()">
-  <div class="card-body hover:shadow-lg" [ngStyle]="{'background-color': getColor()}">
+  <div class="badgetid">
+    {{ pokemon.id }}
+  </div>
+  <div
+    class="card-body hover:shadow-lg"
+    [ngStyle]="{ 'background-color': getColor() }"
+  >
     <img src="{{ pokemon.image }}" />
   </div>
   <div class="card-info">

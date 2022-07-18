@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Pokemon } from 'src/app/utils/types';
+import { Pokemon, Species } from 'src/app/utils/types';
 
 const baseUrl: string = 'https://pokeapi.co/api/v2/pokemon/';
 const baseImgUrl: string =
   'https://assets.pokemon.com/assets/cms2/img/pokedex/detail';
+const baseUrlSpecies: string = 'https://pokeapi.co/api/v2/pokemon-species';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,14 @@ export class PokemonService {
 
   getPokemonData(url: string) {
     return this.http.get(url) as Observable<Pokemon>;
+  }
+
+  getPokemonDataById(id: number) {
+    return this.http.get(`${baseUrl}${id}`) as Observable<Pokemon>;
+  }
+
+  getPokemonSpecies(id: number) {
+    return this.http.get(`${baseUrlSpecies}/${id}`) as Observable<Species>;
   }
 
   getPokemonImage(idPokemon: number) {

@@ -5,15 +5,26 @@
       [listToFilter]="pokemons"
       (listFiltered)="updateList($event)"
     ></app-search-bar>
-    <app-paginator (setFrecuency)="changeLimit($event)"></app-paginator>
+    <app-paginator
+      [itemsPerPage]="pokesPPage"
+      (setFrecuency)="changeLimit($event)"
+    ></app-paginator>
   </div>
   <cdk-virtual-scroll-viewport itemSize="20">
-    <div class="pokeList">
+    <div *ngIf="pokemonsAux.length > 0; else emptyDex" class="pokeList">
       <app-pokemon-card
         class="item-list"
         *ngFor="let pokemon of pokemonsAux"
         [pokemon]="pokemon"
       ></app-pokemon-card>
     </div>
+    <ng-template #emptyDex>
+      <div class="noresults">
+        <div class="nores-container">
+          <img src="../../../assets/notfound.png" alt="Not Found" />
+          <label>NOT FOUND</label>
+        </div>
+      </div>
+    </ng-template>
   </cdk-virtual-scroll-viewport>
 </div>
